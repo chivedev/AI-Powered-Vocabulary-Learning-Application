@@ -2,13 +2,22 @@
 
 A modern, native Android application designed to facilitate personalized language learning through generative AI and efficient data management. Unlike traditional language apps with rigid learning paths, this project provides users with a flexible tool to learn vocabulary tailored to their specific needs.
 
+## 🎬 Project Showcase
+
+### Application Walkthrough
+<p align="center">
+  <video src="media/ai-vocabulary-app-demo.mp4" width="100%" controls autoplay loop muted>
+    Your browser does not support the video tag.
+  </video>
+</p>
+
 ## 🌟 Key Features
 
 *   **Intelligent Word Search:** Seamlessly translates words by querying a local database (search history) first, falling back to a cloud-based API if the word is new.
 *   **AI Context Generation:** Leverages the **Claude 3.5 Haiku** model to generate real-time usage examples and translations, helping users understand word context.
 *   **Offline Accessibility:** All searched words and AI-generated examples are stored in a local **Room** database, enabling full functionality without an internet connection.
 *   **Interactive Learning Modules:** Includes active recall tools such as **Flashcards** and a **Quiz** module with multiple difficulty levels to improve long-term retention.
-*   **Robust Error Handling:** Comprehensive management of network failures, server-side API issues, and non-existent word queries via reactive UI feedback.
+*   **Robust Error Handling:** Comprehensive management of network failures and API issues via reactive UI feedback.
 
 ## 🛠 Tech Stack
 
@@ -18,24 +27,30 @@ A modern, native Android application designed to facilitate personalized languag
 *   **Asynchronous Processing:** Kotlin Coroutines & Flow
 *   **Database:** Room (SQLite abstraction)
 *   **Networking:** Retrofit & OkHttp
-*   **JSON Serialization:** Gson
 *   **AI Provider:** Anthropic Claude 3.5 Haiku API
 
 ## 🏗 Architecture & Design
 
-The application implements the **MVVM** pattern to ensure modularity, scalability, and clean separation of concerns:
+The application implements a clean **MVVM** pattern to ensure modularity and scalability. Below is the architectural flow based on the project's internal package structure:
 
-*   **Model:** Handles business logic and data sources (Room and Retrofit).
-*   **View:** Built with **Jetpack Compose**, observing the state emitted by the ViewModels to render the UI reactively.
-*   **ViewModel:** Manages the application state and acts as a bridge between the data layer and the UI, surviving configuration changes.
+```mermaid
+graph TD
+  subgraph UI_Layer [Presentation Layer - Jetpack Compose]
+    A[HomeView] --> B[HomeViewModel]
+    C[DetailsView] --> D[ItemDetailsViewModel]
+    E[FlashcardView / QuizView] --> F[FlashcardViewModel / QuizViewModel]
+    G[DictionaryNavGraph] --- A
+  end
 
-## 📂 Project Structure
+  subgraph Domain_Layer [Domain / Repository Layer]
+    B & D & F --> H[WordRepository]
+    H --> I[WordRepositoryImpl]
+  end
 
-*   **Data Layer:** Includes Room entities, DAOs, Retrofit API interfaces, and Repository implementations.
-*   **Presentation Layer:** Contains Composable screens (Home, Details, Learn, Quiz, Flashcards) and their corresponding ViewModels.
-*   **Navigation:** Uses a multi-view navigation system to provide a seamless user experience between modules.
-
----
-*Developed as a Bachelor's Thesis project at the Poznan University of Technology.*
-
-[bachelors-thesis-presentation.pdf](https://github.com/user-attachments/files/27380960/bachelors-thesis-presentation.pdf)
+  subgraph Data_Layer [Data Layer]
+    I --> J[Local: WordDao / Room]
+    I --> K[Remote: AnthropicApiService]
+  end
+```
+### Additional Resources
+*   🖼️ **[Functional Overview (PDF)](docs/bachelors-thesis-presentation.pdf)** - A step-by-step visual guide and screenshots of the application's key modules.
