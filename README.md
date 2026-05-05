@@ -4,13 +4,13 @@ A modern, native Android application designed to facilitate personalized languag
 
 ## 🎬 Visual Overview
 
-![Home View](media/1.png)
+![Home View](docs/media/1.png)
 
-![Quiz](media/2.png)
+![Quiz](docs/media/2.png)
 
-![Flashcards](media/4.png)
+![Flashcards](docs/media/4.png)
 
-![Error Handling](media/3.png)
+![Error Handling](docs/media/3.png)
 
 ## 🌟 Key Features
 
