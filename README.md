@@ -2,14 +2,15 @@
 
 A modern, native Android application designed to facilitate personalized language learning through generative AI and efficient data management. Unlike traditional language apps with rigid learning paths, this project provides users with a flexible tool to learn vocabulary tailored to their specific needs.
 
-## 🎬 Project Showcase
+## 🎬 Visual Overview
 
-### Application Walkthrough
-<p align="center">
-  <video src="media/full-app-walkthrough.mp4" width="100%" controls autoplay loop muted>
-    Your browser does not support the video tag.
-  </video>
-</p>
+![Home View](media/1.png)
+
+![Quiz](media/2.png)
+
+![Flashcards](media/4.png)
+
+![Error Handling](media/3.png)
 
 ## 🌟 Key Features
 
