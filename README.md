@@ -37,3 +37,5 @@ The application implements the **MVVM** pattern to ensure modularity, scalabilit
 
 ---
 *Developed as a Bachelor's Thesis project at the Poznan University of Technology.*
+
+[bachelors-thesis-presentation.pdf](https://github.com/user-attachments/files/27380960/bachelors-thesis-presentation.pdf)
