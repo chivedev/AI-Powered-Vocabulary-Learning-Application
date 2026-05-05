@@ -6,7 +6,7 @@ A modern, native Android application designed to facilitate personalized languag
 
 ### Application Walkthrough
 <p align="center">
-  <video src="media/ai-vocabulary-app-demo.mp4" width="100%" controls autoplay loop muted>
+  <video src="media/full-app-walkthrough.mp4" width="100%" controls autoplay loop muted>
     Your browser does not support the video tag.
   </video>
 </p>
